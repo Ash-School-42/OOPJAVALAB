@@ -1,0 +1,103 @@
+/**
+ * Project Week 1 - Basic OOP Calculator
+ * Author: James Ash
+ * Date: 03-03-2026
+ * 
+ * This application demonstrates basic Object-Oriented Programming concepts.
+ * It allows the user to:
+ * 1. Add two integers
+ * 2. Subtract two floating-point numbers
+ * 
+ * The program formats and displays the results clearly.
+ */
+
+import java.util.Scanner;
+
+/**
+ * The Calculator class performs mathematical operations.
+ */
+class Calculator {
+
+    /**
+     * Adds two integer values.
+     * 
+     * @param num1 First integer
+     * @param num2 Second integer
+     * @return Sum of the two integers
+     */
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    /**
+     * Subtracts the first floating-point number from the second.
+     * 
+     * @param num1 First floating-point number
+     * @param num2 Second floating-point number
+     * @return Result of num2 - num1
+     */
+    public double subtract(double num1, double num2) {
+        return num2 - num1;
+    }
+}
+
+/**
+ * Main application class.
+ */
+public class ProjectWeek1Calculator {
+
+    /**
+     * Main method – program entry point.
+     */
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+
+        // 1. Informative Header Line
+        System.out.println("=======================================");
+        System.out.println("Project Week 1 - Basic Calculator");
+        System.out.println("Author: James Ash");
+        System.out.println("=======================================\n");
+
+        // 2. Welcome Message
+        System.out.println("Welcome to the Basic Calculator Application!");
+        System.out.println("You will be asked to enter:");
+        System.out.println("- Two integers for addition");
+        System.out.println("- Two decimal numbers for subtraction\n");
+
+        // 3. Integer Operations
+        System.out.println("INTEGER ADDITION");
+        System.out.print("Enter first integer: ");
+        int int1 = input.nextInt();
+
+        System.out.print("Enter second integer: ");
+        int int2 = input.nextInt();
+
+        int sum = calculator.add(int1, int2);
+
+        System.out.println("\nResult:");
+        System.out.println(int1 + " + " + int2 + " = " + sum);
+
+        // 4. Floating-Point Operations
+        System.out.println("\nFLOATING-POINT SUBTRACTION");
+        System.out.print("Enter first decimal number: ");
+        double double1 = input.nextDouble();
+
+        System.out.print("Enter second decimal number: ");
+        double double2 = input.nextDouble();
+
+        double difference = calculator.subtract(double1, double2);
+
+        System.out.println("\nResult:");
+        System.out.println(double2 + " - " + double1 + " = " + difference);
+
+        // 5. Closing Message
+        System.out.println("\n=======================================");
+        System.out.println("Thank you for using the Basic Calculator!");
+        System.out.println("Goodbye!");
+        System.out.println("=======================================");
+
+        input.close();
+    }
+}
