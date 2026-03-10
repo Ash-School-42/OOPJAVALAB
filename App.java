@@ -1,0 +1,105 @@
+/*
+Name: James Ash
+Date: 03-10-2026
+Assignment: 2.2 Project Week 2 - Logical Operations Calculator
+
+Description:
+This class contains the main application logic for the calculator program.
+It handles user interaction, displays menus, collects input, and calls
+methods from the Calculator class to perform mathematical operations.
+*/
+
+import java.util.Scanner;
+
+public class App {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+
+        int choice = 0;
+
+        // Project information line
+        System.out.println("Project Week 2 - Basic Logical Operations Calculator");
+        System.out.println("Developed by: James Ash\n");
+
+        // Welcome message
+        System.out.println("Welcome to the Java Calculator!");
+        System.out.println("You can add, subtract, multiply, or divide numbers.");
+        System.out.println("Select an option from the menu below.\n");
+
+        // Main program loop
+        while (choice != 5) {
+
+            displayMenu();
+
+            System.out.print("Enter your choice: ");
+            choice = input.nextInt();
+
+            if (choice >= 1 && choice <= 4) {
+
+                System.out.print("Enter first number: ");
+                double num1 = input.nextDouble();
+
+                System.out.print("Enter second number: ");
+                double num2 = input.nextDouble();
+
+                double result = 0;
+
+                switch (choice) {
+
+                    case 1:
+                        result = calculator.add(num1, num2);
+                        System.out.println("Result: " + result);
+                        break;
+
+                    case 2:
+                        result = calculator.subtract(num1, num2);
+                        System.out.println("Result: " + result);
+                        break;
+
+                    case 3:
+                        result = calculator.multiply(num1, num2);
+                        System.out.println("Result: " + result);
+                        break;
+
+                    case 4:
+                        if (num2 == 0) {
+                            System.out.println("Error: Cannot divide by zero.");
+                        } else {
+                            result = calculator.divide(num1, num2);
+                            System.out.println("Result: " + result);
+                        }
+                        break;
+                }
+
+            } else if (choice == 5) {
+
+                System.out.println("\nThank you for using the calculator!");
+                System.out.println("Goodbye!");
+
+            } else {
+
+                System.out.println("Invalid selection. Please try again.");
+
+            }
+
+            System.out.println();
+        }
+
+        input.close();
+    }
+
+    // Displays the calculator menu
+    public static void displayMenu() {
+
+        System.out.println("Calculator Menu");
+        System.out.println("1. Add two numbers");
+        System.out.println("2. Subtract two numbers");
+        System.out.println("3. Multiply two numbers");
+        System.out.println("4. Divide two numbers");
+        System.out.println("5. Quit");
+
+    }
+}
