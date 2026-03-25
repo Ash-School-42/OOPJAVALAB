@@ -1,0 +1,93 @@
+/**
+ * Name: James Ash
+ * Date: 03-24-2026
+ * Course: Java Programming
+ * Assignment: Week 4 - Exception Handling Division Application
+ *
+ * This application demonstrates the use of exception handling by:
+ * - Allowing users to divide two numbers
+ * - Handling division by zero
+ * - Handling invalid (non-numeric) input
+ * - Allowing the user to retry or quit
+ */
+
+import java.util.Scanner;
+
+public class Week4DivisionApp {
+
+    //Main method - entry point of the application
+    public static void main(String[] args) {
+
+        //Print program header information
+        System.out.println("\nJames Ash's Week 4 Project - Division Calculator");
+
+        //Print welcome message and instructions
+        System.out.println("\nWelcome to the Division Calculator!");
+        System.out.println("You will be asked to enter two numbers.");
+        System.out.println("The program will divide the first number by the second.");
+        System.out.println("You may quit at any time by typing 'q'.\n");
+
+        // Create Scanner object for user input
+        Scanner input = new Scanner(System.in);
+
+        // Boolean variable to control program loop
+        boolean running = true;
+
+        // Main program loop - continues until user quits
+        while (running) {
+
+            try {
+                // Prompt user for first number
+                System.out.print("Enter the first number (or q to quit): ");
+                String firstInput = input.nextLine();
+
+                // Check if user wants to quit
+                if (firstInput.equalsIgnoreCase("q")) {
+                    break;
+                }
+
+                // Convert first input to a number
+                double num1 = Double.parseDouble(firstInput);
+
+                // Prompt user for second number
+                System.out.print("Enter the second number: ");
+                String secondInput = input.nextLine();
+
+                // Check if user wants to quit
+                if (secondInput.equalsIgnoreCase("q")) {
+                    break;
+                }
+
+                // Convert second input to a number
+                double num2 = Double.parseDouble(secondInput);
+
+                // Check for division by zero
+                if (num2 == 0) {
+                    throw new ArithmeticException("Cannot divide by zero.");
+                }
+
+                // Perform division
+                double result = num1 / num2;
+
+                // Display result to user
+                System.out.println("Result: " + result + "\n");
+
+            }
+            // Handle invalid numeric input
+            catch (NumberFormatException e) {
+                System.out.println("Error: Please enter valid numeric values.\n");
+            }
+            // Handle division by zero
+            catch (ArithmeticException e) {
+                System.out.println("Error: " + e.getMessage() + "\n");
+            }
+        }
+
+        // Print closing message
+        System.out.println("\nThank you for using the Division Calculator!");
+        System.out.println("Goodbye!");
+
+        // Close scanner to prevent resource leak
+        input.close();
+    }
+}
