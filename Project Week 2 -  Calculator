@@ -1,0 +1,32 @@
+/*
+Name: James Ash
+Date: 03-10-2026
+Assignment: 2.2 Project Week 2 - Logical Operations Calculator
+
+Description:
+This class performs mathematical operations for the calculator application.
+It contains methods for addition, subtraction, multiplication, and division.
+*/
+
+public class Calculator {
+
+    // Adds two numbers
+    public double add(double num1, double num2) {
+        return num1 + num2;
+    }
+
+    // Subtracts two numbers
+    public double subtract(double num1, double num2) {
+        return num1 - num2;
+    }
+
+    // Multiplies two numbers
+    public double multiply(double num1, double num2) {
+        return num1 * num2;
+    }
+
+    // Divides two numbers
+    public double divide(double num1, double num2) {
+        return num1 / num2;
+    }
+}
