@@ -18,7 +18,7 @@ Add single-value memory storage
 Implement a collection-based memory system using an ArrayList
 Provide operations to view, remove, sum, and average stored values
 
-*Task 4: Add exception handling
+* Task 4: Add exception handling
 Prevent program crashes from invalid user input
 Handle division by zero and non-numeric entries safely
 
